@@ -1,0 +1,54 @@
+@use '../index' as *;
+
+.footer {
+  background-color: var(--color-bg-secondary);
+  padding: $spacing-xl 0;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-xl;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  &__back-to-top {
+    border: 1.5px solid var(--footer-border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+
+  &__arrow {
+    width: 20px;
+    height: 20px;
+    filter: var(--arrow-icon-filter);
+  }
+
+  &__contact {
+    border: 1.5px solid var(--footer-border);
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  &__bottom {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  @include mobile-only {
+    .container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}

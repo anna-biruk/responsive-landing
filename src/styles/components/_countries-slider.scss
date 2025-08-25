@@ -1,0 +1,227 @@
+@use '../index' as *;
+
+.countries-section {
+  padding: 104px 0;
+  background-color: var(--countries-section-bg);
+
+  &__container {
+    background-color: var(--color-bg);
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: $font-size-h2-desktop;
+    font-weight: $font-weight-bold;
+    color: var(--color-text);
+    margin-bottom: 24px;
+    text-align: center;
+    line-height: 1;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    max-width: 540px;
+    margin: 0 auto 40px;
+    text-align: center;
+
+    @include mobile-only {
+      max-width: 350px;
+      margin-bottom: $spacing-xl;
+    }
+  }
+}
+
+// Progress Bar and Navigation
+.countries-progress {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: 20px;
+
+  &__start,
+  &__end {
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: var(--color-primary);
+  }
+
+  &__bar {
+    flex: 1;
+    height: 2px;
+    background-color: var(--color-border);
+    position: relative;
+    border-radius: 1px;
+  }
+
+  &__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 1px;
+    width: 0%;
+    transition: width $transition-base;
+  }
+}
+
+// Custom Navigation Buttons
+.countries-nav {
+  display: flex;
+  gap: $spacing-sm;
+  margin-left: $spacing-lg;
+
+  &__btn {
+    @include flex-center;
+    width: 46px;
+    height: 46px;
+    padding: 13px;
+    border-radius: 50%;
+    background: var(--button-bg);
+    transition:
+      background-color $transition-base,
+      opacity $transition-base;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    // Standalone mobile prev button - show only on tablet and mobile
+    &--prev-mobile {
+      display: none;
+
+      @include tablet-only {
+        display: flex;
+      }
+
+      @include mobile-only {
+        display: flex;
+      }
+    }
+
+    // Hide the prev button that's inside .countries-nav on tablet/mobile
+    &--prev:not(&--prev-mobile) {
+      @include tablet-only {
+        display: none;
+      }
+
+      @include mobile-only {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+
+    // Light theme: show dark icon
+    &--dark {
+      display: block;
+    }
+
+    &--light {
+      display: none;
+    }
+  }
+}
+
+// Dark theme icon visibility
+[data-theme='dark'] {
+  .countries-nav__icon {
+    &--dark {
+      display: none;
+    }
+
+    &--light {
+      display: block;
+    }
+  }
+}
+
+.countries-slider {
+  .swiper-pagination {
+    position: relative;
+    bottom: 0;
+    margin-top: $spacing-lg;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: var(--color-primary);
+
+    &::after {
+      font-size: 24px;
+    }
+
+    @include mobile-only {
+      display: none;
+    }
+  }
+}
+
+.country-card {
+  background: var(--countries-section-bg);
+  border-radius: 24px;
+  padding: $spacing-lg;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform $transition-base,
+    box-shadow $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  &__flag {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 48px;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  }
+
+  &__name {
+    font-family: $font-primary;
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+    line-height: 130%;
+    color: var(--color-text);
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    font-family: $font-primary;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    line-height: 145%;
+    color: var(--color-text-secondary);
+    margin: 0;
+    text-align: left;
+  }
+}

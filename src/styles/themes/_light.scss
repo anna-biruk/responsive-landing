@@ -1,0 +1,40 @@
+@use 'sass:color';
+@use '../base/variables' as *;
+
+:root[data-theme='light'] {
+  // Base colors
+  --color-bg: #{$color-white};
+  --color-bg-secondary: rgba(29, 29, 27, 0.05);
+  --color-bg-hover: #{$color-gray-100};
+  --color-text: #{$color-gray-900};
+  --color-text-secondary: #{$color-gray-600};
+  --color-border: #{$color-gray-200};
+
+  // Primary colors
+  --color-primary: #{$color-primary};
+  --color-primary-hover: #{color.adjust($color-primary, $lightness: -10%)};
+  --color-primary-light: #{color.adjust($color-primary, $lightness: 40%)};
+
+  // Component specific
+  --header-bg: #{$color-white};
+  --header-shadow: 0px 0px #{$header-shadow-blur} 0px #{$color-shadow-black};
+  --header-text: #{$color-gray-900};
+  --button-bg: rgba(29, 29, 27, 0.05); // Shared for theme toggle and burger
+  --card-bg: #{$color-white};
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  --product-card: rgba(29, 29, 27, 0.05);
+  --tag-color: #{$color-dark-bg};
+
+  // Arrow icon variables for light theme
+  --arrow-icon-filter: brightness(0) saturate(100%) invert(11%) sepia(0%)
+    saturate(2%) hue-rotate(314deg) brightness(95%) contrast(89%);
+  --arrow-icon-opacity: 0.4;
+
+  // Countries section
+  --countries-section-bg: rgba(29, 29, 27, 0.05); // Same as product-card
+  --countries-card-bg: #{$color-white}; // Same as header-bg
+
+  // Footer
+  --footer-border: rgba(29, 29, 27, 0.1);
+}

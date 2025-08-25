@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SoftSwiss Test Task</title>
+
+    <!-- Sofia Sans Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <!-- Mobile/Tablet burger menu -->
+          <button
+            class="burger-menu burger-menu--tablet"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            <img
+              src="./assets/images/burger.svg"
+              alt="Menu"
+              class="burger-menu__icon burger-menu__icon--dark"
+            />
+            <img
+              src="./assets/images/burger-light.svg"
+              alt="Menu"
+              class="burger-menu__icon burger-menu__icon--light"
+            />
+            <span class="burger-menu__text">menu</span>
+          </button>
+
+          <!-- Logo -->
+          <div class="header__logo">
+            <a href="/" aria-label="Home">
+              <img
+                src="./assets/images/logo.svg"
+                alt="Logo"
+                class="header__logo-light"
+              />
+              <img
+                src="./assets/images/logo-dark.svg"
+                alt="Logo"
+                class="header__logo-dark"
+              />
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav
+            class="header__nav header__nav--desktop"
+            aria-label="Main navigation"
+          >
+            <ul class="nav-menu">
+              <li class="nav-menu__item">
+                <a href="#" class="nav-menu__link">Menu Item</a>
+              </li>
+              <li class="nav-menu__item">
+                <a href="#" class="nav-menu__link">Menu Item</a>
+              </li>
+              <li class="nav-menu__item">
+                <a href="#" class="nav-menu__link">Menu Item</a>
+              </li>
+              <li class="nav-menu__item">
+                <a href="#" class="nav-menu__link">Menu Item</a>
+              </li>
+              <li class="nav-menu__item">
+                <a href="#" class="nav-menu__link">Menu Item</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Header Actions -->
+          <div class="header__actions">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" aria-label="Toggle theme">
+              <img
+                src="./assets/images/light-mode-svg.svg"
+                alt="Light mode"
+                class="theme-toggle__icon theme-toggle__icon--light"
+              />
+              <img
+                src="./assets/images/dark-mode-icon.svg"
+                alt="Dark mode"
+                class="theme-toggle__icon theme-toggle__icon--dark"
+              />
+            </button>
+
+            <!-- Contact Button -->
+            <button class="btn btn--primary header__contact">
+              <img
+                src="./assets/images/contact-icon.svg"
+                alt="Contact"
+                class="header__contact-icon"
+              />
+              <span class="header__contact-text">Contact us</span>
+            </button>
+
+            <!-- Mobile burger menu -->
+            <button
+              class="burger-menu burger-menu--mobile"
+              aria-label="Toggle menu"
+              aria-expanded="false"
+            >
+              <img
+                src="./assets/images/burger.svg"
+                alt="Menu"
+                class="burger-menu__icon burger-menu__icon--dark"
+              />
+              <img
+                src="./assets/images/burger-light.svg"
+                alt="Menu"
+                class="burger-menu__icon burger-menu__icon--light"
+              />
+              <span class="burger-menu__text">Menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile/Tablet Navigation Menu (Body Level) -->
+    <div class="mobile-nav-overlay" aria-hidden="true"></div>
+    <nav class="mobile-nav" aria-label="Mobile navigation" data-menu>
+      <button class="mobile-nav__close" aria-label="Close menu">
+        <img
+          src="./assets/images/close.svg"
+          alt="Close"
+          class="mobile-nav__close-icon mobile-nav__close-icon--dark"
+        />
+        <img
+          src="./assets/images/close-light.svg"
+          alt="Close"
+          class="mobile-nav__close-icon mobile-nav__close-icon--light"
+        />
+      </button>
+      <div class="mobile-nav__content">
+        <ul class="mobile-nav__list">
+          <li class="mobile-nav__item">
+            <a href="#" class="mobile-nav__link">Menu Item</a>
+          </li>
+          <li class="mobile-nav__item">
+            <a href="#" class="mobile-nav__link">Menu Item</a>
+          </li>
+          <li class="mobile-nav__item">
+            <a href="#" class="mobile-nav__link">Menu Item</a>
+          </li>
+          <li class="mobile-nav__item">
+            <a href="#" class="mobile-nav__link">Menu Item</a>
+          </li>
+          <li class="mobile-nav__item">
+            <a href="#" class="mobile-nav__link">Menu Item</a>
+          </li>
+        </ul>
+        <!-- Theme toggle in mobile menu (Mobile only) -->
+        <button
+          class="theme-toggle mobile-nav__theme-toggle"
+          aria-label="Toggle theme"
+        >
+          <img
+            src="./assets/images/light-mode-svg.svg"
+            alt="Light mode"
+            class="theme-toggle__icon theme-toggle__icon--light"
+          />
+          <img
+            src="./assets/images/dark-mode-icon.svg"
+            alt="Dark mode"
+            class="theme-toggle__icon theme-toggle__icon--dark"
+          />
+          <span class="theme-toggle__text">Toggle Theme</span>
+        </button>
+        <!-- Contact button in mobile menu (Tablet only) -->
+        <button class="btn btn--primary mobile-nav__contact">Contact us</button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="container hero__container">
+          <!-- Decorative elements for parallax -->
+          <div class="hero__decorative-left">
+            <img
+              src="./assets/images/left-hero_2x.png"
+              class="hero__decorative-element hero__decorative-element--cards"
+              data-speed="0.3"
+            />
+          </div>
+          <div class="hero__content">
+            <h1 class="hero__title">Heading h1</h1>
+            <p class="hero__description">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took.
+            </p>
+          </div>
+          <div class="hero__decorative-right">
+            <img
+              src="./assets/images/right-hero_2x.png"
+              class="hero__decorative-element hero__decorative-element--dice"
+              data-speed="0.3"
+            />
+          </div>
+        </div>
+        <!-- Decorative right -->
+      </section>
+
+      <!-- Product Grid -->
+      <section class="products" id="products">
+        <div class="container">
+          <div class="product-grid">
+            <!-- Item 1: Telegram Channel -->
+            <article class="product-card product-card--item-1">
+              <div class="product-card__top">
+                <div class="product-card__icon">
+                  <img
+                    src="./assets/images/telegram.svg"
+                    alt="Telegram"
+                    class="product-card__icon-img"
+                  />
+                </div>
+              </div>
+              <div class="product-card__bottom">
+                <h3 class="product-card__title">Telegram Channel</h3>
+                <div class="product-card__arrow">
+                  <img
+                    src="./assets/images/arrow-right.svg"
+                    alt="Arrow right"
+                    class="product-card__arrow-icon"
+                  />
+                </div>
+              </div>
+            </article>
+            <!-- Item 2: User Name -->
+            <article class="product-card product-card--item-2">
+              <div class="product-card__top">
+                <div class="product-card__icon">
+                  <img
+                    src="./assets/images/telegram.svg"
+                    alt="Telegram"
+                    class="product-card__icon-img"
+                  />
+                </div>
+                <span class="product-card__tag">name tag</span>
+              </div>
+              <div class="product-card__bottom">
+                <h3 class="product-card__title">User Name</h3>
+                <div class="product-card__arrow">
+                  <img
+                    src="./assets/images/arrow-right.svg"
+                    alt="Arrow right"
+                    class="product-card__arrow-icon"
+                  />
+                </div>
+              </div>
+            </article>
+            <!-- Item 3: User Name -->
+            <article class="product-card product-card--item-3">
+              <div class="product-card__top">
+                <div class="product-card__icon">
+                  <img
+                    src="./assets/images/telegram.svg"
+                    alt="Telegram"
+                    class="product-card__icon-img"
+                  />
+                </div>
+                <span class="product-card__tag">name tag</span>
+              </div>
+              <div class="product-card__bottom">
+                <h3 class="product-card__title">User Name</h3>
+                <div class="product-card__arrow">
+                  <img
+                    src="./assets/images/arrow-right.svg"
+                    alt="Arrow right"
+                    class="product-card__arrow-icon"
+                  />
+                </div>
+              </div>
+            </article>
+            <!-- Item 4: User Name -->
+            <article class="product-card product-card--item-4">
+              <div class="product-card__top">
+                <div class="product-card__icon">
+                  <img
+                    src="./assets/images/telegram.svg"
+                    alt="Telegram"
+                    class="product-card__icon-img"
+                  />
+                </div>
+                <span class="product-card__tag">name tag</span>
+              </div>
+              <div class="product-card__bottom">
+                <h3 class="product-card__title">User Name</h3>
+                <div class="product-card__arrow">
+                  <img
+                    src="./assets/images/arrow-right.svg"
+                    alt="Arrow right"
+                    class="product-card__arrow-icon"
+                  />
+                </div>
+              </div>
+            </article>
+            <!-- Item 5: User Name -->
+            <article class="product-card product-card--item-5">
+              <div class="product-card__top">
+                <div class="product-card__icon">
+                  <img
+                    src="./assets/images/slack.svg"
+                    alt="Slack"
+                    class="product-card__icon-img"
+                  />
+                </div>
+                <!-- <span class="product-card__tag">name tag</span> -->
+              </div>
+              <div class="product-card__bottom">
+                <h3 class="product-card__title">Slack Channel</h3>
+                <div class="product-card__arrow">
+                  <img
+                    src="./assets/images/arrow-right.svg"
+                    alt="Arrow right"
+                    class="product-card__arrow-icon"
+                  />
+                </div>
+              </div>
+            </article>
+            <!-- Item 6: User Name -->
+            <article class="product-card product-card--item-6">
+              <div class="product-card__top">
+                <div class="product-card__icon">
+                  <img
+                    src="./assets/images/telegram.svg"
+                    alt="Telegram"
+                    class="product-card__icon-img"
+                  />
+                </div>
+                <span class="product-card__tag">name tag</span>
+              </div>
+              <div class="product-card__bottom">
+                <h3 class="product-card__title">User Name</h3>
+                <div class="product-card__arrow">
+                  <img
+                    src="./assets/images/arrow-right.svg"
+                    alt="Arrow right"
+                    class="product-card__arrow-icon"
+                  />
+                </div>
+              </div>
+            </article>
+            <!-- Item 7: User Name -->
+            <article class="product-card product-card--item-7">
+              <div class="product-card__top">
+                <div class="product-card__icon">
+                  <img
+                    src="./assets/images/telegram.svg"
+                    alt="Telegram"
+                    class="product-card__icon-img"
+                  />
+                </div>
+                <span class="product-card__tag">name tag</span>
+              </div>
+              <div class="product-card__bottom">
+                <h3 class="product-card__title">User Name</h3>
+                <div class="product-card__arrow">
+                  <img
+                    src="./assets/images/arrow-right.svg"
+                    alt="Arrow right"
+                    class="product-card__arrow-icon"
+                  />
+                </div>
+              </div>
+            </article>
+            <!-- Item 8: User Name -->
+            <article class="product-card product-card--item-8">
+              <div class="product-card__top">
+                <div class="product-card__icon">
+                  <img
+                    src="./assets/images/telegram.svg"
+                    alt="Telegram"
+                    class="product-card__icon-img"
+                  />
+                </div>
+                <span class="product-card__tag">name tag</span>
+              </div>
+              <div class="product-card__bottom">
+                <h3 class="product-card__title">User Name</h3>
+                <div class="product-card__arrow">
+                  <img
+                    src="./assets/images/arrow-right.svg"
+                    alt="Arrow right"
+                    class="product-card__arrow-icon"
+                  />
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Countries Section -->
+      <section class="countries-section" id="countries">
+        <div class="container">
+          <h2 class="countries-section__title">Heading h2</h2>
+          <p class="countries-section__description">
+            Our platform is compliant with many popular iGaming jurisdictions
+            and regulators. We can also integrate with national
+          </p>
+          <section class="countries-section__container">
+            <!-- Progress Bar and Navigation -->
+            <div class="countries-progress">
+              <button
+                class="countries-nav__btn countries-nav__btn--prev countries-nav__btn--prev-mobile"
+                aria-label="Previous slide"
+              >
+                <img
+                  src="./assets/images/back-icon-dark.svg"
+                  alt="Back"
+                  class="countries-nav__icon countries-nav__icon--dark"
+                />
+                <img
+                  src="./assets/images/back-icon-light.svg"
+                  alt="Back"
+                  class="countries-nav__icon countries-nav__icon--light"
+                />
+              </button>
+              <span class="countries-progress__start">1</span>
+              <div class="countries-progress__bar">
+                <div class="countries-progress__fill"></div>
+              </div>
+              <span class="countries-progress__end">7</span>
+
+              <!-- Custom Navigation Buttons -->
+              <div class="countries-nav">
+                <button
+                  class="countries-nav__btn countries-nav__btn--prev"
+                  aria-label="Previous slide"
+                >
+                  <img
+                    src="./assets/images/back-icon-dark.svg"
+                    alt="Back"
+                    class="countries-nav__icon countries-nav__icon--dark"
+                  />
+                  <img
+                    src="./assets/images/back-icon-light.svg"
+                    alt="Back"
+                    class="countries-nav__icon countries-nav__icon--light"
+                  />
+                </button>
+                <button
+                  class="countries-nav__btn countries-nav__btn--next"
+                  aria-label="Next slide"
+                >
+                  <img
+                    src="./assets/images/forward-icon-dark.svg"
+                    alt="Forward"
+                    class="countries-nav__icon countries-nav__icon--dark"
+                  />
+                  <img
+                    src="./assets/images/forward-icon-light.svg"
+                    alt="Forward"
+                    class="countries-nav__icon countries-nav__icon--light"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <!-- Countries Swiper -->
+            <div class="swiper countries-slider">
+              <div class="swiper-wrapper">
+                <!-- Brazil -->
+                <div class="swiper-slide">
+                  <div class="country-card">
+                    <div class="country-card__flag">
+                      <img
+                        src="./assets/images/countries/brasil.svg"
+                        alt="Brazil Flag"
+                      />
+                    </div>
+                    <h3 class="country-card__name">Brazil</h3>
+                    <p class="country-card__description">
+                      Technology partners lorem Ipsum is simply dummy text of
+                      the
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Greece -->
+                <div class="swiper-slide">
+                  <div class="country-card">
+                    <div class="country-card__flag">
+                      <img
+                        src="./assets/images/countries/greece.svg"
+                        alt="Greece Flag"
+                      />
+                    </div>
+                    <h3 class="country-card__name">Greece</h3>
+                    <p class="country-card__description">
+                      Technology partners lorem Ipsum is simply dummy text of
+                      the
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Mexico -->
+                <div class="swiper-slide">
+                  <div class="country-card">
+                    <div class="country-card__flag">
+                      <img
+                        src="./assets/images/countries/mexico.svg"
+                        alt="Mexico Flag"
+                      />
+                    </div>
+                    <h3 class="country-card__name">Mexico</h3>
+                    <p class="country-card__description">
+                      Technology partners lorem Ipsum is simply dummy text of
+                      the
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Peru -->
+                <div class="swiper-slide">
+                  <div class="country-card">
+                    <div class="country-card__flag">
+                      <img
+                        src="./assets/images/countries/peru.svg"
+                        alt="Peru Flag"
+                      />
+                    </div>
+                    <h3 class="country-card__name">Peru</h3>
+                    <p class="country-card__description">
+                      Technology partners lorem Ipsum is simply dummy text of
+                      the
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Romania -->
+                <div class="swiper-slide">
+                  <div class="country-card">
+                    <div class="country-card__flag">
+                      <img
+                        src="./assets/images/countries/romania.svg"
+                        alt="Romania Flag"
+                      />
+                    </div>
+                    <h3 class="country-card__name">Romania</h3>
+                    <p class="country-card__description">
+                      Technology partners lorem Ipsum is simply dummy text of
+                      the
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Serbia -->
+                <div class="swiper-slide">
+                  <div class="country-card">
+                    <div class="country-card__flag">
+                      <img
+                        src="./assets/images/countries/serbia.svg"
+                        alt="Serbia Flag"
+                      />
+                    </div>
+                    <h3 class="country-card__name">Serbia</h3>
+                    <p class="country-card__description">
+                      Technology partners lorem Ipsum is simply dummy text of
+                      the
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Spain -->
+                <div class="swiper-slide">
+                  <div class="country-card">
+                    <div class="country-card__flag">
+                      <img
+                        src="./assets/images/countries/spain.svg"
+                        alt="Spain Flag"
+                      />
+                    </div>
+                    <h3 class="country-card__name">Spain</h3>
+                    <p class="country-card__description">
+                      Technology partners lorem Ipsum is simply dummy text of
+                      the
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__back-to-top">
+            <img
+              src="./assets/images/arrow-top.svg"
+              alt="Back to top"
+              class="footer__arrow"
+            />
+          </div>
+          <div class="footer__contact">
+            <a href="mailto:test@softswiss.com" class="footer__email"
+              >test@softswiss.com</a
+            >
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__copyright">&copy; 2008-2025 SOFTSWISS</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

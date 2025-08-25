@@ -1,0 +1,40 @@
+@use '../index' as *;
+
+.breadcrumbs {
+  padding: $spacing-md 0;
+  background: var(--color-bg-secondary);
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+
+    &:not(:last-child)::after {
+      content: '/';
+      margin-left: $spacing-sm;
+      color: var(--color-text-secondary);
+    }
+
+    &[aria-current='page'] {
+      color: var(--color-text);
+      font-weight: $font-weight-medium;
+    }
+
+    a {
+      transition: color $transition-base;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--color-primary);
+      }
+    }
+  }
+}

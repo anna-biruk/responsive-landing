@@ -1,0 +1,4 @@
+// Forward all shared modules that components need
+@forward 'base/variables';
+@forward 'utils/breakpoints';
+@forward 'utils/mixins';

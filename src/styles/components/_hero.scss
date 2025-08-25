@@ -1,0 +1,146 @@
+@use '../index' as *;
+
+.hero {
+  background: $color-primary;
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 62px 20px 80px;
+  overflow: hidden;
+  height: 364px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+  }
+
+  &__content {
+    max-width: 760px;
+    flex: 1;
+    align-self: flex-start;
+    margin-top: 42px;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: var(--text-light);
+    max-width: 470px;
+    margin: 0 auto;
+  }
+
+  // Decorative Elements
+
+  &__decorative-left,
+  &__decorative-right {
+    flex-shrink: 0;
+    align-self: flex-end;
+    z-index: 1;
+    margin-bottom: 55px;
+  }
+
+  &__decorative-element {
+    width: 360px;
+    height: 380px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__decoration {
+    margin-top: 62px;
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    width: 360px;
+    height: 380px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  @include tablet-only {
+    height: 500px;
+    padding: 104px 20px 20px;
+
+    &__container {
+      align-items: flex-start;
+      gap: 20px;
+      height: 100%;
+      flex-direction: column;
+    }
+
+    &__content {
+      gap: 12px;
+      max-width: 540px;
+      align-self: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    &__title {
+      font-size: 48px;
+    }
+
+    &__description {
+      font-size: 13px;
+      max-width: 435px;
+    }
+
+    &__decorative-left,
+    &__decorative-right {
+      margin-bottom: -86px;
+      align-self: flex-end;
+      position: absolute;
+      z-index: 1;
+      overflow: hidden;
+      bottom: 0;
+    }
+
+    &__decorative-left {
+      left: -55px;
+    }
+
+    &__decorative-right {
+      right: -55px;
+    }
+
+    &__decorative-element {
+      width: 284px;
+      height: 300px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  @include mobile-only {
+    padding: 40px 20px 20px;
+
+    &__description {
+      max-width: 350px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__decorative-left,
+    &__decorative-right {
+      display: none;
+    }
+  }
+}

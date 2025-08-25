@@ -1,0 +1,41 @@
+@use 'sass:color';
+@use '../base/variables' as *;
+
+:root[data-theme='dark'] {
+  // Base colors
+  --color-bg: #{$color-dark-bg};
+
+  --color-bg-secondary: rgba(#1d1d1b0d, 0.05);
+  --color-bg-hover: #{$color-gray-800};
+  --color-text: #{$color-gray-100};
+  --color-text-secondary: #{$color-gray-400};
+  --color-border: #{$color-gray-700};
+
+  // Primary colors
+  --color-primary: #{$color-primary};
+  --color-primary-hover: #{color.adjust($color-primary, $lightness: 10%)};
+  --color-primary-light: #{color.adjust($color-primary, $lightness: -30%)};
+
+  // Component specific
+  --header-bg: #{$color-dark-bg};
+  --header-shadow: 0px 0px #{$header-shadow-blur} 0px #{$color-shadow-black};
+  --header-text: #{$color-gray-100};
+  --button-bg: rgba(255, 255, 255, 0.1); // Shared for theme toggle and burger
+  --card-bg: #{$color-gray-800};
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  --product-card: rgba(255, 255, 255, 0.1);
+  --text-color: #{$color-white};
+  --tag-color: #{$color-white};
+
+  // Arrow icon variables for dark theme
+  --arrow-icon-filter: brightness(0) saturate(100%) invert(100%);
+  --arrow-icon-opacity: 0.4;
+
+  // Countries section
+  --countries-section-bg: rgba(255, 255, 255, 0.1); // Same as product-card
+  --countries-card-bg: #{$color-dark-bg}; // Same as header-bg
+
+  // Footer
+  --footer-border: rgba(255, 255, 255, 0.1);
+}

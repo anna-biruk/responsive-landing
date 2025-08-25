@@ -1,0 +1,29 @@
+// Load Sass modules
+@use 'sass:color';
+
+// Base imports - using @use for side-effects
+@use 'base/variables';
+@use 'utils/breakpoints';
+@use 'utils/mixins';
+@use 'base/reset';
+@use 'base/typography';
+
+// Layouts
+@use 'layouts/grid';
+
+// Components
+@use 'components/header';
+@use 'components/hero';
+@use 'components/breadcrumbs';
+@use 'components/product-grid';
+@use 'components/slider';
+@use 'components/countries-slider';
+@use 'components/footer';
+
+// Themes
+@use 'themes/light';
+@use 'themes/dark';
+
+body {
+  background-color: var(--color-bg);
+}

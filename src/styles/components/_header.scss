@@ -1,0 +1,496 @@
+@use '../index' as *;
+
+.header {
+  background: var(--color-primary);
+  min-height: 98px;
+
+  .container {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    z-index: $z-index-sticky;
+    transition: background-color $transition-base;
+  }
+
+  @include mobile-only {
+    // min-height: $header-height-mobile;
+    padding: $header-padding 0;
+    background: var(--header-bg);
+    box-shadow: var(--header-shadow);
+    // min-height: 88px;
+
+    .container {
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      z-index: unset;
+      transition: unset;
+    }
+  }
+
+  @include tablet-only {
+    // min-height: $header-height-tablet;
+    padding: 10px 0;
+  }
+
+  @include desktop-only {
+    // min-height: $header-height-desktop;
+    padding: 10px 0;
+  }
+
+  &__wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    @include flex-between;
+    position: relative;
+
+    @include mobile-only {
+      border-radius: 0;
+    }
+
+    @include tablet-only {
+      background: var(--header-bg);
+      border-radius: $header-border-radius;
+      box-shadow: var(--header-shadow);
+      padding: $header-padding;
+    }
+
+    @include desktop-only {
+      background: var(--header-bg);
+      border-radius: $header-border-radius;
+      box-shadow: var(--header-shadow);
+      padding: $header-padding;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 2;
+
+    @include mobile-only {
+      order: 1; // First position on mobile
+      margin-right: auto; // Push everything else to the right
+    }
+
+    @include tablet-only {
+      flex: 1;
+      display: flex;
+      justify-content: center; // Center logo on tablet
+    }
+
+    @include desktop-only {
+      padding-right: 44px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      height: 30px;
+    }
+
+    img {
+      height: 30px;
+      width: auto;
+    }
+
+    &-light {
+      display: block;
+    }
+
+    &-dark {
+      display: none;
+    }
+  }
+
+  &__nav {
+    &--desktop {
+      display: none;
+
+      @include desktop-only {
+        display: block;
+        flex: 1;
+        margin: 0 $spacing-xl;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+
+    @include mobile-only {
+      gap: 8px;
+      order: 2; // Group all action buttons together on the right
+    }
+  }
+
+  &__contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    @include mobile-only {
+      padding: 14px; // Square button for icon only
+    }
+
+    @include tablet-only {
+      padding: 14px; // Square button for icon only
+    }
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+
+      @include desktop-only {
+        display: none; // Hide icon on desktop
+      }
+    }
+
+    &-text {
+      @include mobile-only {
+        display: none; // Hide text on mobile
+      }
+
+      @include tablet-only {
+        display: none; // Hide text on tablet
+      }
+    }
+  }
+}
+
+// Burger Menu
+.burger-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  color: #1d1d1b;
+  padding: 14px;
+  border-radius: $border-radius-xs;
+  background: var(--button-bg);
+  transition: background-color $transition-base;
+
+  @include desktop-only {
+    display: none;
+  }
+
+  &--tablet {
+    display: none;
+
+    @include tablet-only {
+      display: flex; // Show only on tablet
+    }
+  }
+
+  &--mobile {
+    display: none;
+
+    @include mobile-only {
+      display: flex; // Show only on mobile
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+
+    // Light theme: show dark icon
+    &--dark {
+      display: block;
+    }
+
+    &--light {
+      display: none;
+    }
+  }
+
+  &__text {
+    font-family: $font-primary;
+    font-weight: $font-weight-semibold;
+    font-size: 14px;
+    line-height: 145%;
+    color: var(--header-text);
+
+    @include mobile-only {
+      display: none; // Hide text on mobile
+    }
+  }
+}
+
+// Desktop Navigation
+.nav-menu {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    display: block;
+    padding: 14px;
+    font-family: $font-primary;
+    font-weight: $font-weight-semibold;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: var(--header-text);
+    transition: color $transition-base;
+    position: relative;
+  }
+}
+
+// Mobile Navigation
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background: var(--color-bg);
+  z-index: $z-index-fixed + 1; // Above overlay (1031)
+  transition: transform $transition-base;
+  overflow-y: auto;
+  transform: translateX(100%); // Start off-screen to the right
+
+  @include mobile-only {
+    width: 100%; // Full width on mobile
+    padding-top: $header-height-mobile;
+  }
+
+  @include tablet-only {
+    width: 320px; // Fixed width on tablet
+    padding-top: $header-height-tablet;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @include desktop-only {
+    display: none;
+  }
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 14px;
+    border-radius: $border-radius-xs;
+    background: var(--button-bg);
+    transition: background-color $transition-base;
+    z-index: 2;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+
+      // Light theme: show dark icon
+      &--dark {
+        display: block;
+      }
+
+      &--light {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    padding: $spacing-xl;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__link {
+    display: block;
+    padding: $spacing-sm 0;
+    font-size: 18px;
+    font-weight: $font-weight-medium;
+    transition: color $transition-base;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-primary);
+    }
+  }
+
+  &__theme-toggle {
+    width: 100%;
+    display: none;
+    justify-content: flex-start;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    padding: $spacing-sm 0;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: $spacing-lg;
+
+    @include mobile-only {
+      display: flex;
+    }
+
+    .theme-toggle__text {
+      display: block;
+      margin-left: $spacing-sm;
+      font-size: 18px;
+      font-weight: $font-weight-medium;
+      color: var(--color-text);
+    }
+  }
+
+  &__contact {
+    width: 100%;
+    display: none;
+
+    @include tablet-only {
+      display: inline-flex;
+    }
+  }
+}
+
+// Theme Toggle
+.theme-toggle {
+  @include flex-center;
+  width: fit-content;
+  padding: 14px;
+  border-radius: $border-radius-xs;
+  background: var(--button-bg);
+  transition: background-color $transition-base;
+
+  // Hide in header on mobile (shown in menu instead)
+  .header__actions & {
+    @include mobile-only {
+      display: none;
+    }
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @include focus-visible;
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    transition: opacity $transition-base;
+
+    // In light mode, show dark icon
+    &--light {
+      display: none;
+    }
+
+    &--dark {
+      display: block;
+    }
+  }
+
+  &__text {
+    display: none; // Hidden by default, shown in mobile menu via specific override
+  }
+}
+
+// Dark theme icon and logo visibility
+[data-theme='dark'] {
+  .theme-toggle__icon {
+    // In dark mode, show light icon
+    &--light {
+      display: block;
+    }
+
+    &--dark {
+      display: none;
+    }
+  }
+
+  .header__logo {
+    &-light {
+      display: none;
+    }
+
+    &-dark {
+      display: block;
+    }
+  }
+
+  .burger-menu__icon {
+    // In dark mode, show light icon
+    &--dark {
+      display: none;
+    }
+
+    &--light {
+      display: block;
+    }
+  }
+
+  .mobile-nav__close-icon {
+    // In dark mode, show light icon
+    &--dark {
+      display: none;
+    }
+
+    &--light {
+      display: block;
+    }
+  }
+}
+
+// Buttons
+.btn {
+  @include button-base;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+
+  &--primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  &--secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+}
+
+// Mobile menu overlay
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: $z-index-fixed; // Same as header but below menu (1030)
+  opacity: 0;
+  transition: opacity $transition-base;
+
+  &.is-visible {
+    display: block;
+    opacity: 1;
+  }
+}

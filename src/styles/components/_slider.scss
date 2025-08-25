@@ -1,0 +1,87 @@
+@use '../index' as *;
+
+.slider-section {
+  padding: $spacing-3xl 0;
+  background: var(--color-bg-secondary);
+
+  &__title {
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.slider {
+  position: relative;
+  padding: 0 $spacing-2xl;
+
+  @include mobile-only {
+    padding: 0;
+  }
+}
+
+.slide-card {
+  background: var(--card-bg);
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  height: 100%;
+
+  &__image {
+    background: var(--color-bg-secondary);
+    @include aspect-ratio(16, 9);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    padding: $spacing-lg;
+  }
+
+  &__title {
+    margin-bottom: $spacing-sm;
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__description {
+    color: var(--color-text-secondary);
+  }
+}
+
+// Swiper customization
+.swiper {
+  &-button-next,
+  &-button-prev {
+    color: var(--color-primary);
+
+    &::after {
+      font-size: 24px;
+
+      @include mobile-only {
+        font-size: 20px;
+      }
+    }
+
+    &:hover {
+      color: var(--color-primary-hover);
+    }
+  }
+
+  &-pagination {
+    position: relative;
+    margin-top: $spacing-xl;
+
+    &-bullet {
+      background: var(--color-text-secondary);
+      opacity: 0.3;
+
+      &-active {
+        background: var(--color-primary);
+        opacity: 1;
+      }
+    }
+  }
+}
