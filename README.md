@@ -1,5 +1,9 @@
 # SoftSwiss Test Task
 
+## Live Preview
+
+[https://anna-biruk.github.io/responsive-landing/](https://anna-biruk.github.io/responsive-landing/)
+
 ## Requirements
 
 - Node.js v18.0.0 or higher
